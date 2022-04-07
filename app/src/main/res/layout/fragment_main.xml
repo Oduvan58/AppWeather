@@ -1,92 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    android:orientation="vertical">
+    android:background="@drawable/gradient_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_container"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_fragment_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/city_name_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/city_name_margin_top"
-            android:textColor="@color/white"
-            android:textSize="@dimen/city_name_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Москва" />
-
-        <TextView
-            android:id="@+id/city_coordinates_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/city_coordinates_margin_top"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/city_name_text_view"
-            tools:text="lt/ln: 55.755826, 37.617299900000035" />
-
-        <TextView
-            android:id="@+id/temperature_label_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top_weather_dp"
-            android:text="@string/temperature_label"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/city_coordinates_text_view" />
-
-        <TextView
-            android:id="@+id/temperature_value_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/temperature_value_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temperature_label_text_view"
-            tools:text="+15" />
-
-        <TextView
-            android:id="@+id/feels_like_label_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:text="@string/feels_like_label"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temperature_value_text_view" />
-
-        <TextView
-            android:id="@+id/feels_like_value_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/feels_like_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/feels_like_label_text_view"
-            tools:text="-23" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_fragment_FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tint="@null"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_russia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/fab_icon_size" />
 
     <FrameLayout
-        android:id="@+id/loading_layout"
+        android:id="@+id/main_fragment_loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
@@ -98,4 +39,4 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
     </FrameLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
