@@ -4,4 +4,7 @@
     <string name="feels_like_label">Ощущается как</string>
     <string name="city_coordinates">lt/ln: %s, %s"</string>
     <string name="error">Error</string>
+    <string name="title_alert_dailog_fragment">Внимание!</string>
+    <string name="message_alert_dailog_fragment">Ошибка запроса!</string>
+    <string name="ttext_button_alert_dailog_fragment">Повторно</string>
 </resources>
