@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_text_view_recycler"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_title"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="parent"

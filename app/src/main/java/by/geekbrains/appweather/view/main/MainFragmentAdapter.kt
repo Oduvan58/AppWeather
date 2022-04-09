@@ -36,15 +36,14 @@ class MainFragmentAdapter(private var onItemViewClickListener: MainFragment.OnIt
         holder.bind(weatherData[position])
     }
 
-    override fun getItemCount(): Int {
-        return weatherData.size
-    }
+    override fun getItemCount() = weatherData.size
 
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(weather: Weather) {
-            itemView.findViewById<TextView>(R.id.title_city_card_view_text_view).text =
-                weather.city.name
-            itemView.setOnClickListener {
+        private val nameCity = itemView.findViewById<TextView>(R.id.title_city_card_view_text_view)
+
+        fun bind(weather: Weather) = with(itemView) {
+            nameCity.text = weather.city.name
+            setOnClickListener {
                 onItemViewClickListener?.onItemViewClick(weather)
             }
         }
