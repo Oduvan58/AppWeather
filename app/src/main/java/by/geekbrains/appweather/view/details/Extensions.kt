@@ -1,4 +1,4 @@
-package by.geekbrains.appweather.view
+package by.geekbrains.appweather.view.details
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
