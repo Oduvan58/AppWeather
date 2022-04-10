@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import by.geekbrains.appweather.repository.Repository
 import by.geekbrains.appweather.repository.RepositoryImpl
-import java.lang.Thread.sleep
 
 class MainViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData(),
@@ -18,14 +17,11 @@ class MainViewModel(
     private fun getDataFromLocalSource(isRussian: Boolean) {
         with(liveDataToObserve) {
             postValue(AppState.Loading)
-            Thread {
-                sleep(2000)
-                if (isRussian) {
-                    postValue(AppState.Success(repositoryImpl.getWeatherFromLocalStorageRus()))
-                } else {
-                    postValue(AppState.Success(repositoryImpl.getWeatherFromLocalStorageWorld()))
-                }
-            }.start()
+            if (isRussian) {
+                postValue(AppState.Success(repositoryImpl.getWeatherFromLocalStorageRus()))
+            } else {
+                postValue(AppState.Success(repositoryImpl.getWeatherFromLocalStorageWorld()))
+            }
         }
     }
 }

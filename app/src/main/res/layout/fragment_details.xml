@@ -83,6 +83,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/feels_like_label_text_view"
             tools:text="-23" />
+
+        <TextView
+            android:id="@+id/weather_condition_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/city_name_text_size"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feels_like_value_text_view"
+            tools:text="Облачно" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
