@@ -1,5 +1,6 @@
 package by.geekbrains.appweather.view.details
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import by.geekbrains.appweather.domain.Weather
 import by.geekbrains.appweather.utils.showSnackBar
 import by.geekbrains.appweather.viewmodel.AppState
 import by.geekbrains.appweather.viewmodel.DetailsViewModel
+import com.bumptech.glide.Glide
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 private const val PROCESS_ERROR = "Обработка ошибки"
 private const val MAIN_LINK = "https://api.weather.yandex.ru/v2/informers?"
@@ -92,6 +95,17 @@ class DetailsFragment : Fragment() {
         binding.temperatureValueTextView.text = weather.temperature.toString()
         binding.feelsLikeValueTextView.text = weather.feelsLike.toString()
         binding.weatherConditionTextView.text = weather.condition
+
+        Glide.with(this).load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+            .into(binding.cityIconAppCompatImageView)
+
+        weather.icon?.let {
+            GlideToVectorYou.justLoadImage(
+                activity,
+                Uri.parse("https://yastatic.net/weather/i/icons/blueye/color/svg/${it}.svg"),
+                binding.weatherIconAppCompatImageView
+            )
+        }
     }
 
     override fun onDestroyView() {

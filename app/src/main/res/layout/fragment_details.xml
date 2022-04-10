@@ -36,6 +36,16 @@
             app:layout_constraintTop_toBottomOf="@+id/city_name_text_view"
             tools:text="lt/ln: 55.755826, 37.617299900000035" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/city_icon_app_compat_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/city_icon_height"
+            android:layout_marginTop="@dimen/city_coordinates_margin_top"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city_coordinates_text_view" />
+
         <TextView
             android:id="@+id/temperature_label_text_view"
             android:layout_width="wrap_content"
@@ -84,6 +94,15 @@
             app:layout_constraintTop_toBottomOf="@+id/feels_like_label_text_view"
             tools:text="-23" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/weather_icon_app_compat_image_view"
+            android:layout_width="@dimen/weather_icon_width"
+            android:layout_height="@dimen/weather_icon_height"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feels_like_value_text_view" />
+
         <TextView
             android:id="@+id/weather_condition_text_view"
             android:layout_width="wrap_content"
@@ -94,7 +113,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/feels_like_value_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/weather_icon_app_compat_image_view"
             tools:text="Облачно" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,5 +8,5 @@ import by.geekbrains.appweather.domain.getDefaultCity
 fun convertDtoToModel(weatherDTO: WeatherDTO): List<Weather> {
     val fact: FactDTO = weatherDTO.fact!!
     return listOf(Weather(getDefaultCity(), fact.temp!!, fact.feelsLike!!,
-        fact.condition!!))
+        fact.condition!!, fact.icon))
 }
