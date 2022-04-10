@@ -14,7 +14,6 @@ import by.geekbrains.appweather.databinding.FragmentMainBinding
 import by.geekbrains.appweather.domain.Weather
 import by.geekbrains.appweather.view.details.DetailsFragment
 import by.geekbrains.appweather.view.details.DetailsFragment.Companion.BUNDLE_WEATHER_KEY
-import by.geekbrains.appweather.view.details.showSnackBar
 import by.geekbrains.appweather.viewmodel.AppState
 import by.geekbrains.appweather.viewmodel.MainViewModel
 
@@ -82,7 +81,7 @@ class MainFragment : Fragment() {
         when (appState) {
             is AppState.Error -> {
                 binding.mainFragmentLoadingLayout.visibility = View.GONE
-                binding.mainFragmentFAB.showSnackBar(getString(R.string.error))
+//                binding.root.showSnackBar(getString(R.string.error))
             }
             AppState.Loading -> {
                 binding.mainFragmentLoadingLayout.visibility = View.VISIBLE

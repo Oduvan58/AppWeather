@@ -1,11 +1,13 @@
-package by.geekbrains.appweather.view.details
+package by.geekbrains.appweather.utils
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 
 fun View.showSnackBar(
     text: String,
+    actionText: String,
+    action: (View) -> Unit,
     length: Int = Snackbar.LENGTH_INDEFINITE,
 ) {
-    Snackbar.make(this, text, length).show()
+    Snackbar.make(this, text, length).setAction(actionText, action).show()
 }

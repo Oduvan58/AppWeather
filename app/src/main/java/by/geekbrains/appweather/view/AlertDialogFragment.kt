@@ -1,4 +1,4 @@
-package by.geekbrains.appweather.view.details
+package by.geekbrains.appweather.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog

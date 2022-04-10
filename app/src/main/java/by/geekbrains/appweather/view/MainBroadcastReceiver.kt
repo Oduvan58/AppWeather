@@ -1,4 +1,4 @@
-package by.geekbrains.appweather.view.details
+package by.geekbrains.appweather.view
 
 import android.content.BroadcastReceiver
 import android.content.Context
