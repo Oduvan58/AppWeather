@@ -17,15 +17,13 @@ import by.geekbrains.appweather.viewmodel.DetailsViewModel
 import com.bumptech.glide.Glide
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
-private const val PROCESS_ERROR = "Обработка ошибки"
-private const val MAIN_LINK = "https://api.weather.yandex.ru/v2/informers?"
-private const val REQUEST_API_KEY = "X-Yandex-API-Key"
-
 class DetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var weatherBundle: Weather
+    private val weatherBundle: Weather by lazy {
+        (arguments?.getParcelable(BUNDLE_WEATHER_KEY)) ?: Weather()
+    }
 
     companion object {
         const val BUNDLE_WEATHER_KEY = "BUNDLE_WEATHER_KEY"
@@ -51,12 +49,10 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        weatherBundle = arguments?.getParcelable(BUNDLE_WEATHER_KEY) ?: Weather()
-        viewModel.detailsLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
             renderData(it)
         })
-        viewModel.getWeatherFromRemoteSource(weatherBundle.city.lat,
-            weatherBundle.city.lon)
+        getWeather()
     }
 
     private fun renderData(appState: AppState) {
@@ -77,35 +73,39 @@ class DetailsFragment : Fragment() {
                     getString(R.string.error),
                     getString(R.string.reload),
                     {
-                        viewModel.getWeatherFromRemoteSource(weatherBundle.city.lat,
-                            weatherBundle.city.lon)
+                        getWeather()
                     })
             }
         }
     }
 
+    private fun getWeather() {
+        viewModel.getWeatherFromRemoteSource(weatherBundle.city.lat, weatherBundle.city.lon)
+    }
+
     private fun setWeather(weather: Weather) {
         val city = weatherBundle.city
-        binding.cityNameTextView.text = city.name
-        binding.cityCoordinatesTextView.text = String.format(
-            getString(R.string.city_coordinates),
-            city.lat.toString(),
-            city.lon.toString()
-        )
-        binding.temperatureValueTextView.text = weather.temperature.toString()
-        binding.feelsLikeValueTextView.text = weather.feelsLike.toString()
-        binding.weatherConditionTextView.text = weather.condition
+        with(binding) {
+            cityNameTextView.text = city.name
+            cityCoordinatesTextView.text = String.format(
+                getString(R.string.city_coordinates),
+                city.lat.toString(),
+                city.lon.toString()
+            )
+            temperatureValueTextView.text = weather.temperature.toString()
+            feelsLikeValueTextView.text = weather.feelsLike.toString()
+            weatherConditionTextView.text = weather.condition
 
+            weather.icon?.let {
+                GlideToVectorYou.justLoadImage(
+                    activity,
+                    Uri.parse("https://yastatic.net/weather/i/icons/blueye/color/svg/${it}.svg"),
+                    weatherIconAppCompatImageView
+                )
+            }
+        }
         Glide.with(this).load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
             .into(binding.cityIconAppCompatImageView)
-
-        weather.icon?.let {
-            GlideToVectorYou.justLoadImage(
-                activity,
-                Uri.parse("https://yastatic.net/weather/i/icons/blueye/color/svg/${it}.svg"),
-                binding.weatherIconAppCompatImageView
-            )
-        }
     }
 
     override fun onDestroyView() {

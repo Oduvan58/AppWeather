@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.geekbrains.appweather.R
 import by.geekbrains.appweather.databinding.FragmentMainBinding
 import by.geekbrains.appweather.domain.Weather
+import by.geekbrains.appweather.utils.showSnackBar
 import by.geekbrains.appweather.view.details.DetailsFragment
 import by.geekbrains.appweather.view.details.DetailsFragment.Companion.BUNDLE_WEATHER_KEY
 import by.geekbrains.appweather.viewmodel.AppState
@@ -81,7 +82,12 @@ class MainFragment : Fragment() {
         when (appState) {
             is AppState.Error -> {
                 binding.mainFragmentLoadingLayout.visibility = View.GONE
-//                binding.root.showSnackBar(getString(R.string.error))
+                binding.root.showSnackBar(
+                    getString(R.string.error),
+                    getString(R.string.reload),
+                    {
+                        viewModel.getWeatherFromLocalSourceRus()
+                    })
             }
             AppState.Loading -> {
                 binding.mainFragmentLoadingLayout.visibility = View.VISIBLE

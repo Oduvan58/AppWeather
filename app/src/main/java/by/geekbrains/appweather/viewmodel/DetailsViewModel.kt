@@ -22,17 +22,12 @@ class DetailsViewModel(
 ) : ViewModel() {
     fun getLiveData() = detailsLiveData
     fun getWeatherFromRemoteSource(lat: Double, lon: Double) {
-        detailsLiveData.value = AppState.Loading
+        detailsLiveData.postValue(AppState.Loading)
         detailsRepositoryImpl.getWeatherDetailsFromServer(lat, lon, callBack)
     }
 
-    private val callBack = object :
-        Callback<WeatherDTO> {
-        override fun onResponse(
-            call: Call<WeatherDTO>,
-            response:
-            Response<WeatherDTO>,
-        ) {
+    private val callBack = object : Callback<WeatherDTO> {
+        override fun onResponse(call: Call<WeatherDTO>, response: Response<WeatherDTO>) {
             val serverResponse: WeatherDTO? = response.body()
             detailsLiveData.postValue(
                 if (response.isSuccessful && serverResponse != null) {
