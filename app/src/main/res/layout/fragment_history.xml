@@ -4,29 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    android:clickable="true"
+    android:focusable="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_fragment_recycler_view"
+    <TextView
+        android:id="@+id/history_requests_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/history_requests_margin"
+        android:text="@string/history_requests_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/history_requests_text_size"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/main_fragment_FAB"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_fragment_recycler_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_russia"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="@dimen/fab_icon_size"
-        app:tint="@null" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_requests_text_view" />
 
     <FrameLayout
-        android:id="@+id/main_fragment_loading_layout"
+        android:id="@+id/history_fragment_loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
