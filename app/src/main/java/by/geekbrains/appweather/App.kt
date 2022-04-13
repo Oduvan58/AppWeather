@@ -1,9 +1,11 @@
 package by.geekbrains.appweather
 
 import android.app.Application
+import android.os.Looper
 import androidx.room.Room
 import by.geekbrains.appweather.room.HistoryDAO
 import by.geekbrains.appweather.room.HistoryDataBase
+import java.util.logging.Handler
 
 class App : Application() {
 
@@ -23,10 +25,7 @@ class App : Application() {
                         if (appInstance == null)
                             throw IllegalStateException("Application is null while creating DataBase")
                         db = Room.databaseBuilder(
-                            appInstance!!.applicationContext,
-                            HistoryDataBase::class.java,
-                            DB_NAME)
-                            .allowMainThreadQueries()
+                            appInstance!!.applicationContext, HistoryDataBase::class.java, DB_NAME)
                             .build()
                     }
                 }

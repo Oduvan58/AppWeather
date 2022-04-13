@@ -22,7 +22,9 @@ class DetailsViewModel(
 ) : ViewModel() {
 
     fun saveWeather(weather: Weather) {
-        historyRepositoryImpl.saveEntity(weather)
+        Thread {
+            historyRepositoryImpl.saveEntity(weather)
+        }.start()
     }
 
     fun getLiveData() = detailsLiveData
