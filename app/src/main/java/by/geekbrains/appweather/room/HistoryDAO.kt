@@ -2,6 +2,7 @@ package by.geekbrains.appweather.room
 
 import androidx.room.*
 
+@Dao
 interface HistoryDAO {
 
     @Query("SELECT * FROM HistoryEntity")
