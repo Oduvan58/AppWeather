@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.geekbrains.appweather.R
 import by.geekbrains.appweather.databinding.ActivityMainBinding
-import by.geekbrains.appweather.view.details.MainBroadcastReceiver
 import by.geekbrains.appweather.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
