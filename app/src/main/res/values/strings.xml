@@ -10,4 +10,6 @@
     <string name="connection_lost">Connection lost</string>
     <string name="connection_found">Connection found</string>
     <string name="reload">Reload</string>
+    <string name="history_requests_text">История запросов:</string>
+    <string name="history_title_menu">History</string>
 </resources>

@@ -84,6 +84,10 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setWeather(weather: Weather) {
+        viewModel.saveWeather(Weather(weatherBundle.city,
+            weather.temperature,
+            weather.feelsLike,
+            weather.condition))
         val city = weatherBundle.city
         with(binding) {
             cityNameTextView.text = city.name
