@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import by.geekbrains.appweather.R
 import by.geekbrains.appweather.databinding.ActivityMainBinding
+import by.geekbrains.appweather.view.contacts.ContactsFragment
 import by.geekbrains.appweather.view.history.HistoryFragment
 import by.geekbrains.appweather.view.main.MainFragment
 
@@ -39,6 +40,13 @@ class MainActivity : AppCompatActivity() {
             R.id.action_open_history_fragment -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.history_fragment_container, HistoryFragment.newInstance())
+                    .addToBackStack("")
+                    .commit()
+                true
+            }
+            R.id.action_open_contacts_fragment -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.contacts_fragment_container, ContactsFragment.newInstance())
                     .addToBackStack("")
                     .commit()
                 true
