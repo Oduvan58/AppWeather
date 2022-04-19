@@ -7,4 +7,10 @@
         android:icon="@drawable/ic_baseline_history_24"
         android:title="@string/history_title_menu"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_open_contacts_fragment"
+        android:icon="@drawable/ic_baseline_contact_phone_24"
+        android:title="@string/contacts_title_menu"
+        app:showAsAction="always" />
 </menu>

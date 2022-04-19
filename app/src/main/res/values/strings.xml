@@ -12,4 +12,10 @@
     <string name="reload">Reload</string>
     <string name="history_requests_text">История запросов:</string>
     <string name="history_title_menu">History</string>
+    <string name="contacts_title_menu">Contacts</string>
+    <string name="text_label_text_view">Список контактов:</string>
+    <string name="default_name">Default name</string>
+    <string name="default_phone">Default phone</string>
+    <string name="send_message_to_contact">Написать сообщение</string>
+    <string name="call_to_contact">Позвонить</string>
 </resources>
