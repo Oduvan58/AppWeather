@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import by.geekbrains.appweather.R
-import by.geekbrains.appweather.databinding.FragmentMapsBinding
 import by.geekbrains.appweather.databinding.FragmentMapsMainBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
