@@ -35,4 +35,5 @@
     <dimen name="margin">10dp</dimen>
     <dimen name="margin_card_view_contact">5dp</dimen>
     <dimen name="fab_location_icon_size">45dp</dimen>
+    <dimen name="text_size_address">24sp</dimen>
 </resources>
