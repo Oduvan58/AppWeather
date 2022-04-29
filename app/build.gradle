@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id("kotlin-parcelize")
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 apply plugin: 'kotlin-kapt'
 
@@ -48,6 +49,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.2'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:23.0.3'
     kapt 'androidx.room:room-compiler:2.4.2'
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
