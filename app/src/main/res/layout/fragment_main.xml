@@ -15,10 +15,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_fragment_FAB_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/color_background_FAB_location"
+        android:src="@android:drawable/ic_dialog_map"
+        app:layout_constraintBottom_toTopOf="@+id/main_fragment_FAB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/fab_location_icon_size" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_fragment_FAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/color_background_FAB_main"
         android:src="@drawable/ic_russia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

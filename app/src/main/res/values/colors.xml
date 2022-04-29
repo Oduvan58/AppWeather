@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_card_view">#73689CF3</color>
+    <color name="color_background_FAB_location">#18FFFF</color>
+    <color name="color_background_FAB_main">#71A2F4</color>
 </resources>

@@ -11,6 +11,7 @@ import by.geekbrains.appweather.databinding.ActivityMainBinding
 import by.geekbrains.appweather.view.contacts.ContactsFragment
 import by.geekbrains.appweather.view.history.HistoryFragment
 import by.geekbrains.appweather.view.main.MainFragment
+import by.geekbrains.appweather.view.maps.MapsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,6 +48,13 @@ class MainActivity : AppCompatActivity() {
             R.id.action_open_contacts_fragment -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.contacts_fragment_container, ContactsFragment.newInstance())
+                    .addToBackStack("")
+                    .commit()
+                true
+            }
+            R.id.action_open_maps_fragment -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.maps_fragment_container, MapsFragment.newInstance())
                     .addToBackStack("")
                     .commit()
                 true
