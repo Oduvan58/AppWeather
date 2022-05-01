@@ -61,6 +61,18 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    flavorDimensions 'version'
+    productFlavors {
+        pro {
+            dimension 'version'
+        }
+        free {
+            dimension 'version'
+            versionNameSuffix '.free'
+        }
+    }
+
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
