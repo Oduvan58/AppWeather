@@ -8,6 +8,20 @@ plugins {
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        Properties properties = new Properties()
+        properties.load(rootProject.file("passwords.properties").newDataInputStream())
+        def password = properties.getProperty("password")
+        def fileStore = properties.getProperty("fileStore")
+        def aliasKey = properties.getProperty("aliasKey")
+        release {
+            storeFile file(fileStore)
+            storePassword = password
+            keyAlias aliasKey
+            keyPassword = password
+        }
+    }
+
     compileSdk 31
 
     defaultConfig {
@@ -22,10 +36,21 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            versionNameSuffix "-debug"
+        }
+
+        beta {
+            initWith debug
+            versionNameSuffix "-beta"
+        }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,9 +58,21 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
+
+    flavorDimensions 'version'
+    productFlavors {
+        pro {
+            dimension 'version'
+        }
+        free {
+            dimension 'version'
+            versionNameSuffix '.free'
+        }
+    }
+
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
